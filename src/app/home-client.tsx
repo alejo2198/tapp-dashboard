@@ -40,7 +40,7 @@ export default function HomeClient({ users: initialUsers }: { users: User[] }) {
               Add User
             </button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="max-h-[95vh] overflow-y-auto">
             <DialogTitle>Create New User</DialogTitle>
             <ModalForm
               onSubmit={(data) => {
