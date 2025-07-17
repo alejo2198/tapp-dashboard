@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Next.js Tapp Dashboard
+To review my work, please use the following links
+## 🔗 Important Links
 
-## Getting Started
+- **Deployed Site:** [https://tapp-dashboard.vercel.app/](https://tapp-dashboard.vercel.app/)
+- **Figma Design File:** [TAPP Design Challenge](https://www.figma.com/design/J2oePoTLpgclY2fS3ECRFh/TAPP-Design-Challenge?node-id=0-1&t=A953kHbW7JXzz5RL-1)
 
-First, run the development server:
+## Time Tracking
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Day One – Design & Planning
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Task                              | Time Spent | 
+|-----------------------------------|------------|
+| Design exploration                |    1 hr        |
+| Define entity models              |      30 m      | 
+| Create low-fidelity wireframes    |      1 hr      | [
+| Create high-fidelity Prototype |      2 hr      | 
+| Apply auto layout in Figma        |      1.5 hr      | 
+ Total  | 6 hrs
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Day Two – Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Task                                     | Time Spent | 
+|------------------------------------------|------------|
+| Project setup (Next.js + TailwindCSS)    |    30 m        | 
+| Implement responsive design              |      4 hr      | 
+| Structure server and client components   |       1 hr     | 
+| Build form with error states             |       1 hr     | 
+| Use Zod for type matching and validation |        30 m    | 
+| Debug and Deploy on Vercel             |        30 m    | 
+Total | 7.5 hrs
 
-## Learn More
+## 🚧 Improvements
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Modularity
+- Refactor large components into smaller, reusable ones to reduce file size and improve readability.
+- Separate UI concerns from business logic to enhance maintainability.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Tailwind Configuration
+- Customize the Tailwind config (`tailwind.config.js`) to:
+  - Add reusable color tokens (e.g., `primary`, `accent`, `background`). I had them inserte,d but I ran into a bug that made me call the CSS variable and not the configured color
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### 3. Error Handling
+- Add error states for:
+  - Empty fetch responses (e.g., no users found)
+  - Failed API calls (e.g., network or server errors)
+- Display fallback UI or retry options.
+- Would be nice to have a notification or toast system for errors/success feedback.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4. Add User Logic
+- Create a function to handle valid address input:
+  - Extract `street`, `zip`, `city`, and `geo` coordinates (latitude & longitude)
+  - Integrate with a geocoding service like Google Maps API or OpenStreetMap (Nominatim).
+  - Use extracted values to populate user records.
+ 
+### 5. Utilize a Google Maps API
+- Utilize this API:
+   - to create a map in the user details page
+   - to retrieve zip/postal/city/coord data from an address
+ 
+### 6. Links / Phone
+ - Change all the phone, email, and website links to built-in next Link tags that email or call that person
+ - Some phones had extensions would be best to take the string with or without an extension and separate it with a utils function. Then save the phone number as an object with number types for phone and an optional extension
+  - Update the form to accept extensions for phones
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Core Features
+
+**Users Page**
+  - [x] Call dummy API: `https://jsonplaceholder.typicode.com/users`
+  - [x] Display users in a **table** or **card** (name, email, phone)
+  - [x] Handle **loading**  states
+  - [ ] Handle **error** states
+
+**User Detail Page**
+  - [x] Navigate to `/users/[id]` when clicking a user
+  - [x] Fetch and display **detailed info** of selected user
+
+**(Optional) Create New User Form**
+  - [x] Add a simple form to **create a user** (no persistence needed)
+  - [x] Display the flow (input, submit, confirmation or alert)
+
+---
+
+## ⚙️ Requirements & Best Practices
+
+- [x] Use **Next.js App Router**
+- [x] Use **Server Components** where appropriate
+- [x] Use **Client Components** for interactive features
+- [x] Apply **basic styling** (TailwindCSS recommended)
+- [x] Maintain **clean and scalable folder structure**
+- [x] Use **async/await** properly
+- [ ] Handle **errors** gracefully
+- [x] Add **TypeScript types** if TypeScript is used
+
+
